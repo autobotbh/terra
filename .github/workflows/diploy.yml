@@ -6,10 +6,9 @@ on:
     branches:
       - 'main'
 
- env:
+env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-     
 
 jobs:
   build-infra:
@@ -23,16 +22,16 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
-        working-directory: ./terraform-vpc-module
+        working-directory: ./terra/terraform vpc-module
       - name: Terraform Validate
         id: validate
         run: terraform validate
-        working-directory: ./terraform-vpc-module
+        working-directory: ./terra/terraform vpc-module
       - name: Terraform Plan
         id: plan
         run: terraform plan
-        working-directory: ./terraform-vpc-module
+        working-directory: ./terra/terraform vpc-module
       - name: Terraform Apply
         id: apply
-        run: terraform apply --auto-approve
-        working-directory: ./terraform-vpc-module
+        run: terraform destroy --auto-approve
+        working-directory: ./terra/terraform vpc-module
