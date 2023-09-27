@@ -6,14 +6,11 @@ on:
     branches:
       - 'main'
 
-<<<<<<< HEAD
  env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
      
 
-=======
->>>>>>> 103ba48968344b7fdfb54073e8a262f7fa67786d
 jobs:
   build-infra:
     name: terraform-ci-cd
@@ -26,7 +23,6 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
-<<<<<<< HEAD
         working-directory: ./terraform-vpc-module
       - name: Terraform Validate
         id: validate
@@ -38,20 +34,5 @@ jobs:
         working-directory: ./terraform-vpc-module
       - name: Terraform Apply
         id: apply
-        run: terraform destroy --auto-approve
+        run: terraform apply --auto-approve
         working-directory: ./terraform-vpc-module
-=======
-        working-directory: ./Terra
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate
-        working-directory: ./Terraform-VPC
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan
-        working-directory: ./Terraform-VPC
-      - name: Terraform Apply
-        id: apply
-        run: terraform destroy --auto-approve
-        working-directory: ./Terraform-VPC
->>>>>>> 103ba48968344b7fdfb54073e8a262f7fa67786d
